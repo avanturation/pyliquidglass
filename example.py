@@ -2,7 +2,7 @@ import objc
 import time
 from Cocoa import *
 
-from pyliquidglass import LiquidGlass
+from pyliquidglass import LiquidGlass, LiquidGlassVariant
 
 if __name__ == "__main__":
     app = NSApplication.sharedApplication()
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     window.makeKeyAndOrderFront_(None)
 
     view_id = glass.add_view(window)
-    glass.set_variant(view_id, 8)
+    glass.set_variant(view_id, LiquidGlassVariant.CONTROL_CENTER)
 
     app.setActivationPolicy_(NSApplicationActivationPolicyRegular)
     app.activateIgnoringOtherApps_(True)

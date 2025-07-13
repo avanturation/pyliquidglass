@@ -1,11 +1,6 @@
 from enum import IntEnum
 
 class LiquidGlassVariant(IntEnum):
-    '''
-    Variants of NSGlassEffectView private API.
-    NSGlassEffectView에서 베리언트로 사용하는 값들입니다.
-    '''
-
     REGULAR = 0
     CLEAR = 1
     DOCK = 2

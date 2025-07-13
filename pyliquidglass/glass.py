@@ -69,14 +69,14 @@ class LiquidGlass():
             dispatch_sync(dispatch_get_main_queue(), wrapper)
             evt.wait()
 
-    def _create_glass_view(self, window: NSWindow, corner_radius, tint_color_hex):
+    def _create_glass_view(self, window: NSWindow, corner_radius: int, tint_color_hex: str):
         content_view = window.contentView()
         frame = content_view.frame()
 
         glass_view = self.NSGlassEffectView.alloc().initWithFrame_(frame)
         glass_view.setAutoresizingMask_(NSViewWidthSizable | NSViewHeightSizable)
 
-        if corner_radius > 0:
+        if corner_radius:
             glass_view.setWantsLayer_(True)
             glass_view.layer().setCornerRadius_(corner_radius)
             glass_view.layer().setMasksToBounds_(True)
@@ -94,6 +94,15 @@ class LiquidGlass():
         return glass_view
 
     def add_view(self, window: NSWindow, corner_radius=0.0, tint_color_hex=None) -> int:
+        '''
+        Addes NSGlassEffectView into NSWindow and returns view id. (Int)
+        미리 생성된 NSWindow에 NSGlassEffectView를 붙여서 자체적인 id값을 리턴합니다.
+
+        Arguments:
+        window (Required): NSWindow
+        corner_radius: Radius value to give (float, ex: 16.0)
+        tint_color_hex: Hex color with optional alpha (str, ex: #ff0000)
+        '''
         glass_view_container = {}
 
         def task():
@@ -109,7 +118,15 @@ class LiquidGlass():
         self.view_registry[vid] = glass_view
         return vid
 
-    def set_variant(self, view_or_id, variant: int):
+    def set_variant(self, view_or_id, variant: LiquidGlassVariant) -> None:
+        '''
+        Sets variant into NSGlassEffectView.
+        add_view 함수를 통해 생성된 NSGlassEffectView에 variant를 부여합니다.
+
+        Arguments:
+        view_or_id: Return value of add_view.
+        variant: LiquidGlassVariant.(WHATEVER_YOU_WANT) (IntEnum)
+        '''
         if isinstance(view_or_id, int):
             view = self.view_registry.get(view_or_id)
             if not view:
@@ -122,6 +139,6 @@ class LiquidGlass():
         if sel:
             method = getattr(view, sel, None)
             if method:
-                method(variant)
+                method(variant.value)
         else:
             print(f"set_variant: No setter found for 'variant' on {view}")
