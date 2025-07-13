@@ -6,13 +6,13 @@
 </div>
 
 ## Requirements
-- macOS 26 Tahoe
+- **macOS 26 Tahoe**
 - Python3
 - PyObjC
 
 ## Reference
 
-### class: `LiquidGlass`
+### `LiquidGlass`
 ```python
 from pyliquidglass import LiquidGlass
 ```
