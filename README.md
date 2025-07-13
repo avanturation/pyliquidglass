@@ -55,7 +55,7 @@ LiquidGlass.set_variant(view_id, LiquidGlassVariant.CONTROL_CENTER)
 ---
 
 ### `LiquidGlassVariant(IntEnum)`
-- Enum defining built-in NSGlassEffectView private variants for `NSGlassEffectView`.
+- Enum defining built-in private variants for `NSGlassEffectView`.
 - `NSGlassEffectView`에 내부적으로 정의된 베리언트들의 Enum입니다.
 
 | Name | Value |
@@ -69,7 +69,7 @@ LiquidGlass.set_variant(view_id, LiquidGlassVariant.CONTROL_CENTER)
 | `AV_PLAYER` | 6 |
 | `FACETIME` | 7 |
 | `CONTROL_CENTER` | 8 |
-| `NOTIFICATION_CENTER` |
+| `NOTIFICATION_CENTER` | 9 |
 | `MONOGRAM` | 10 |
 | `BUBBLES` | 11 |
 | `IDENTITY` | 12 |
