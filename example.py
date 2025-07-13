@@ -24,7 +24,7 @@ if __name__ == "__main__":
     window.makeKeyAndOrderFront_(None)
 
     view_id = glass.add_view(window)
-    glass.set_variant(view_id, 5)
+    glass.set_variant(view_id, 8)
 
     app.setActivationPolicy_(NSApplicationActivationPolicyRegular)
     app.activateIgnoringOtherApps_(True)
